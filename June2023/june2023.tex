@@ -1,0 +1,269 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\RequirePackage{fontawesome}
+\usepackage[default]{lato}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\newcommand{\emailsymbol}{\faAt}
+\newcommand{\phonesymbol}{\faPhone}
+\newcommand{\homepagesymbol}{\faChain}
+\newcommand{\locationsymbol}{\faMapMarker}
+\newcommand{\linkedinsymbol}{\faLinkedin}
+\newcommand{\twittersymbol}{\faTwitter}
+\newcommand{\githubsymbol}{\faGithub}
+\newcommand{\orcidsymbol}{\aiOrcid}
+\newcommand{\mailsymbol}{\faEnvelope}
+
+\newcommand{\printinfo}[2]{\mbox{{#1}\hspace{0.5em}#2\hspace{0.5em}}}
+
+\newcommand{\name}[1]{\def\@name{#1}}
+\newcommand{\tagline}[1]{\def\@tagline{#1}}
+\newcommand{\photo}[2]{\def\@photo{#2}\def\@photodiameter{#1}}
+\newcommand{\email}[1]{\printinfo{\emailsymbol}{#1}}
+\newcommand{\mailaddress}[1]{\printinfo{\mailsymbol}{#1}}
+\newcommand{\phone}[1]{\printinfo{\phonesymbol}{#1}}
+\newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
+\newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
+\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+\newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
+\newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
+\newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\courseItem}[1]{
+    {\small #1 \vspace{-2pt}}
+}
+
+\newcommand{\honorsItem}[1]{
+    {\small #1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeEduSubheading}[5]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+      \textit{\small#5}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Arnav Brahmasandra} \\ \vspace{1pt}
+    
+    \phone{734-545-2956} 
+    \mailaddress{\href{mailto:arnavb@uchicago.edu}{arnavb@uchicago.edu}}
+    \linkedin{\href{https://www.linkedin.com/in/abrahmasandra/}{\textbf{abrahmasandra}}}
+    \github{\href{https://github.com/abrahmasandra}{\textbf{abrahmasandra}}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeEduSubheading
+      {University of Chicago}{Chicago, IL}
+      {B.S. Computer Science}{Sep 2021 -- Jun 2025}{GPA: 3.964/4.000} \newline
+
+    \textbf{Relevant Coursework:} \courseItem{Introduction to CS I/II $|$ Discrete Math/Algorithms $|$ Computational Biology $|$ Biostatistical Methods (Graduate) $|$ Inorganic Chemistry I/II $|$ Systems Programming I/II $|$ Honors Physics I/II/III}
+    
+    \textbf{Honors:} \honorsItem{Robert Maynard Hutchins Scholar (2023) $|$ \href{https://ugradresearchsymposium.omeka.net/items/show/120}{Quad Undergraduate Research Scholar (2023)} $|$ Dean's List (2021-2023) $|$ \href{https://careeradvancement.uchicago.edu/careers-in/engineering/prototype-for-success/class-of-2025}{UChicago Prototype for Success Member (2021-2023)} $|$ LA/Boston Engineering Career Trek Participant (2021, 2022) $|$  \href{https://www.acs.org/content/acs/en/pressroom/newsreleases/2021/may/2021-chemistry-olympiad-virtual-study-camp-students-named.html}{USNCO Study Camp Qualifier (2021)} $|$ \href{https://www.soinc.org/sites/default/files/uploaded_files/2019_Final_C_results_by_rank.pdf}{Science Olympiad Nationals Medalist (2019)} $|$ AIME Qualifier (2020)}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Research Internship - ISTernship}{Jun 2023 -- Aug 2023}
+      {Institute of Science \& Technology Austria Computational Materials Science}{Vienna, Austria}
+      
+      \resumeItemListStart
+        \resumeItem{Developing an objective measure for ranking the information content of different descriptors and dimensionality reduction maps; implementing this measure as a Python library, to then employ on chemical and biological datasets}
+        \resumeItem{Applying this measure to investigating the information loss through the layers of neural networks}
+        
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Software Research Assistant in Prof. Amanchukwu Lab}{Sep 2022 -- Apr 2023}
+      {University of Chicago Pritzker School of Molecular Engineering}{Chicago, IL}
+      \resumeItemListStart
+        \resumeItem{Trained shallow/deep-learning models, and implemented transfer learning pipeline, to accurately predict the melting point of salts, with the goal of finding low-melting point ionic liquids for use as electrolytes in battery systems}
+        \resumeItem{Conducted high-throughput DFT calculations in order to compute binding energies of 800+ salts, to use as a proxy target feature for melting points}
+        \resumeItem{Familiar With: RDKit, DL Models (GNNs), Gaussian (DFT), Linux, BASH, High Performance Computing (HPC)}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Co-President/Treasurer}{Sep 2021 -- Jun 2023}
+      {University of Chicago Science Olympiad}{Chicago, IL}
+      \resumeItemListStart
+        \resumeItem{Ran campus-wide Science Olympiad invitational with 70+ teams (middle and high school)}
+        \resumeItem{Collaborated to manage club finances (over \$10,000 budget), handle logistics/book 30+ rooms, communicate with teams/coaches, recruit 30+ volunteers, and write 35+ tests to ensure the competitions ran smoothly}
+        \resumeItem{Event Supervisor: \href{https://drive.google.com/file/d/1fRMMpelgXjAxVGQVapS8YvXTfJ1IKnUY/view?usp=sharing}{Chem Lab (2022 + 2023)}, Can't Judge a Powder (2023), It's About Time (2022)}
+        \resumeItemListEnd
+
+    \resumeSubheading
+      {Data Science Intern}{Jun 2022 -- Aug 2022}
+      {Code Your Dreams}{Chicago, IL}
+      \resumeItemListStart
+        \resumeItem{Created 20+ lesson modules (slides and Jupyter Notebooks), as well as thorough instructor curriculum guides for new 8-week data science course, covering content from data cleaning and statistics to regressions}
+        \resumeItem{Lead instructor for MIT App Inventor-based Intro App Development course for Chicago high school students}
+        \resumeItem{Collaborated to organize laptop/desktop drive to donate to CS students with limited technology access in Burundi}
+    \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Misinformation in Media Project} $|$ \emph{Python, NLTK, Regex, Sentiment Analysis, Plotly}}{Jan 2023 -- May 2023}
+          \resumeItemListStart
+            \resumeItem{Collaborated with research group and partnered with NewsGuard to create a research report, curriculum, and infographic to understand and prevent proliferation of fake news by the elderly}
+            \resumeItem{Conducted data analysis/NLP to understand the syntactical and emotional differences between fake and real news}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Sandhoff Disease Bioinformatics Project} $|$ \emph{R, BASH, HPC, VMD}}{Feb 2023 -- Mar 2023}
+          \resumeItemListStart
+            \resumeItem{Completed a \href{https://uchicago.box.com/s/to3lftyof0m0vhotuud15k5id65i2inr}{bioinformatics project/paper} analyzing genetic mutations within a patient's full DNA sequence}
+            \resumeItem{Submitted slurm jobs to UChicago Midway supercomputers to run BWA sequence alignment, genotyping, and variant annotation; Visualized protein structure and amino acid mutation using VMD}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming}{: Python, R, C, STATA, JavaScript, HTML/CSS, Java, SQL, React Native} \\
+     \textbf{Miscellaneous}{: Fusion 360, \LaTeX, Pandas, Plotly, TensorFlow, Microsoft Office}
+    } \\
+     \textbf{Interests}{: Building Computers, \href{https://www.instagram.com/whedgehogbaking/}{Baking}, \href{https://socialsciences.uchicago.edu/news/data4all-workshop-introduces-high-school-students-data-science-research}{Data Science Education}, \href{https://www.youtube.com/channel/UCub38TXhT_RZkwLwyXtTpaA}{YouTube}, Running, \href{https://tthspectrum.org/articles/organic-electronics-sustainable-storage-renewable-energy/}{Science Communication}, \href{https://pioneeroptimist.com/2072/news/pioneer-offers-various-tutoring-programs-for-students/}{Tutoring}}
+    }
+    
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
